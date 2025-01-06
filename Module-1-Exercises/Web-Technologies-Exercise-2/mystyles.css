@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: darkgrey;
+}
+
+.expense-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.expense-form input, .expense-form select, .expense-form button {
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.expense-form button {
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.expense-form button:hover {
+    background-color: green;
+}
+
+#expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#expense-table th, #expense-table td {
+    border: 1px solid lightcyan;
+    padding: 10px;
+    text-align: center;
+}
+
+#expense-table th {
+    background-color: white;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+}
+
+.category-badge.Food { background-color: blue; }
+.category-badge.Travel { background-color: darkgoldenrod; }
+.category-badge.Shopping { background-color:green; }
+.category-badge.Other { background-color: grey; }
+
+#category-summary {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+canvas {
+    margin: 0 auto;
+    display: block;
+}
