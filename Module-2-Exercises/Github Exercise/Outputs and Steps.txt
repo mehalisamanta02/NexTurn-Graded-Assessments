@@ -1,0 +1,157 @@
+GitHub Exercise
+
+Steps and Outputs:-
+
+1. How will you set up the project for version control and push it to GitHub? 
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d
+	$ mkdir sample-project
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d
+	$ cd sample-project
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project
+	$ git init
+	Initialized empty Git repository in D:/sample-project/.git/
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ echo HelloWorld > message.txt
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git status
+	On branch master
+
+	No commits yet
+
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+			message.txt
+
+	nothing added to commit but untracked files present (use "git add" to track)
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git add .
+	warning: in the working copy of 'message.txt', LF will be replaced by CRLF the next time Git touches it
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git commit -m "Initial commit with message.txt"
+	[master (root-commit) 1c542c0] Initial commit with message.txt
+	 1 file changed, 1 insertion(+)
+	 create mode 100644 message.txt
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git status
+	On branch master
+	nothing to commit, working tree clean
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git remote add origin https://github.com/mehalisamanta02/sample-project.git
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git push -u origin master
+	Enumerating objects: 3, done.
+	Counting objects: 100% (3/3), done.
+	Writing objects: 100% (3/3), 243 bytes | 243.00 KiB/s, done.
+	Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+	To https://github.com/mehalisamanta02/sample-project.git
+	 * [new branch]      master -> master
+	branch 'master' set up to track 'origin/master'.
+
+
+2. What steps will you take to create, push, and manage branches effectively? 
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git checkout -b feature/update-readme
+	Switched to a new branch 'feature/update-readme'
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (feature/update-readme)
+	$ echo "# Sample Project" > README.md
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (feature/update-readme)
+	$ echo "This is a sample project for Git and GitHub workflow training." >> README.md
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (feature/update-readme)
+	$ git status
+	On branch feature/update-readme
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+			README.md
+
+	nothing added to commit but untracked files present (use "git add" to track)
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (feature/update-readme)
+	$ git add README.md
+	warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (feature/update-readme)
+	$ git commit -m "Added README.md with Project Name and Description."
+	[feature/update-readme ab75ca4] Added README.md with Project Name and Description.
+	 1 file changed, 2 insertions(+)
+	 create mode 100644 README.md
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (feature/update-readme)
+	$ git status
+	On branch feature/update-readme
+	nothing to commit, working tree clean
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (feature/update-readme)
+	$ git push -u origin feature/update-readme
+	Enumerating objects: 4, done.
+	Counting objects: 100% (4/4), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (3/3), done.
+	Writing objects: 100% (3/3), 385 bytes | 385.00 KiB/s, done.
+	Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+	remote:
+	remote: Create a pull request for 'feature/update-readme' on GitHub by visiting:
+	remote:      https://github.com/mehalisamanta02/sample-project/pull/new/feature/update-readme
+	remote:
+	To https://github.com/mehalisamanta02/sample-project.git
+	 * [new branch]      feature/update-readme -> feature/update-readme
+	branch 'feature/update-readme' set up to track 'origin/feature/update-readme'.
+
+
+3. How will you ensure the changes in the feature branch are merged into the main 
+branch? 
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (feature/update-readme)
+	$ git checkout master
+	Switched to branch 'master'
+	Your branch is up to date with 'origin/master'.
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git merge feature/update-readme
+	Updating 1c542c0..ab75ca4
+	Fast-forward
+	 README.md | 2 ++
+	 1 file changed, 2 insertions(+)
+	 create mode 100644 README.md
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git push origin master
+	Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+	To https://github.com/mehalisamanta02/sample-project.git
+	   1c542c0..ab75ca4  master -> master
+
+
+4. What commands will you use to clean up unused branches locally and 
+remotely?
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git push origin master
+	Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+	To https://github.com/mehalisamanta02/sample-project.git
+	   1c542c0..ab75ca4  master -> master
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git branch -d feature/update-readme
+	Deleted branch feature/update-readme (was ab75ca4).
+
+	Mehali@DESKTOP-92A23Q3 MINGW64 /d/sample-project (master)
+	$ git push origin --delete feature/update-readme
+	To https://github.com/mehalisamanta02/sample-project.git
+	 - [deleted]         feature/update-readme
+
+
+
+GitHub Project Link - https://github.com/mehalisamanta02/sample-project.git
